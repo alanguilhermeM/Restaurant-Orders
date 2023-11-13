@@ -1,8 +1,5 @@
 from src.models.ingredient import Ingredient, Restriction  # noqa: F401, E261, E501
 
-# obj1 = {"bacon": {Restriction.ANIMAL_MEAT, Restriction.ANIMAL_DERIVED}}
-# obj2 = {"ovo": {Restriction.ANIMAL_DERIVED}}
-
 
 # Req 1
 def test_ingredient():
