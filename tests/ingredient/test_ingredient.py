@@ -1,6 +1,21 @@
-from src.models.ingredient import Ingredient  # noqa: F401, E261, E501
+from src.models.ingredient import Ingredient, Restriction  # noqa: F401, E261, E501
+
+# obj1 = {"bacon": {Restriction.ANIMAL_MEAT, Restriction.ANIMAL_DERIVED}}
+# obj2 = {"ovo": {Restriction.ANIMAL_DERIVED}}
 
 
 # Req 1
 def test_ingredient():
-    pass
+    instance = Ingredient('bacon')
+    instance2 = Ingredient('bacon')
+    instance3 = Ingredient('ovo')
+    assert instance.__hash__() == hash('bacon')
+    assert instance.name == 'bacon'
+
+    assert instance == instance2
+    assert instance != instance3
+
+    assert instance.__repr__() == f"Ingredient('{instance2.name}')"
+
+    assert Restriction.ANIMAL_MEAT in instance.restrictions
+    assert Restriction.ANIMAL_DERIVED in instance.restrictions
